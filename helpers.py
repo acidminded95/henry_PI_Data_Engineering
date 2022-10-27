@@ -233,7 +233,7 @@ def run_sqlite_cursor(conn, cn):
     print(pd.read_sql_query(query, conn))
 
     opciones = '''
-    Por favor ingresa alguna de las opciones:
+    \n-- Por favor ingresa alguna de las opciones:
         A) Hacer consulta
         B) Commit y cerrar conexión
         C) Cerrar conexión sin commit
@@ -242,7 +242,7 @@ def run_sqlite_cursor(conn, cn):
     querying = True
     while querying:
         if choice == 'A':
-            query = input('Ingresa la consulta de SQLite que deseas hacer:')
+            query = input('-- Ingresa la consulta de SQLite que deseas hacer:')
             print('Output:\n')
             try:
                 print(pd.read_sql_query(query, conn))
