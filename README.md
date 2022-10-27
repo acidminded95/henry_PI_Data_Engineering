@@ -38,6 +38,8 @@ Cabe señalar, que dicho archivo .db se genera automáticamente al correr el scr
 
 ![flowchart](https://imgur.com/a/ljcV0QD "Logo Title Text 1")
 
+FLOWCHART: https://imgur.com/a/ljcV0QD 
+
 
 ## Resumen del proceso de ETL
 
