@@ -1,4 +1,5 @@
-# Henry_PI: Data Engineering
+![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+# Henry PI: Data Engineering
 Este repositorio contiene mi proyecto individual de Data Engineering de la carrera de Data Science de la escuela Henry.
 
 ## ¿Qué se esperaba del proyecto?
@@ -36,10 +37,7 @@ Además, allí mismo se encuentran dos tablas de dimensión (producto y sucursal
 
 Cabe señalar, que dicho archivo .db se genera automáticamente al correr el script 'pipeline.py'. No fue posible subirlo al repositorio de GitHub debido a que pesaba más de 100MB.
 
-![flowchart](https://imgur.com/a/ljcV0QD "Logo Title Text 1")
-
-FLOWCHART: https://imgur.com/a/ljcV0QD 
-
+![Flowchart](https://i.imgur.com/xguvOG7.png "ETL Process Flowchart")
 
 ## Resumen del proceso de ETL
 
@@ -94,8 +92,11 @@ Para la carga de los archivos se usó la librería 'SQLite', la cual genera un a
 Como un pequeño extra, se desarrollo una pequeña interfaz para que, al correr el archivo 'pipeline.py' desde la terminal se puedan hacer consultas a la base de datos (algo sencillo pero bastante útil). En esta misma parte del código se pone como ejemplo para hacer un query aquel que fue solicitado por el cliente al definir la tarea: Precio promedio de la sucursal 9-1-688..
 ## Notas del ingeniero de datos para el correcto funcionamiento del programa:
 • Todos los archivos a procesar deben de ser cargados en la carpeta 'datasets' del proyecto.
+
 • Cualquier archivo que se meta a dicho directorio debe tener un nombre con el mismo formato de los archivos facilitados para la elaboración del proyecto. Esto es 'precio(s)_semanas_YYYYMMDD' y estar en alguno de los formatos para los cuales se diseñó el programa (csv, json, txt, xls o xlsx).
+
 • La carga incremental se lleva a cabo de manera automática al ingresar un archivo adecuado a la carpeta 'datasets'.
+
 • Las librerías usadas para la elaboración del script 'pipeline.py' y el módulo 'helpers.py' son:
     - pandas
     - numpy
@@ -106,5 +107,7 @@ Como un pequeño extra, se desarrollo una pequeña interfaz para que, al correr 
 
 ## Comentarios para el cliente:
 • Se encontró que las columnas de 'producto_id' y 'sucursal_id', así como las respectivas columnas de 'id' de las tablas a las que hacen referencia, tienen códigos de diferentes longitudes. Se sugiere definir un formato de código único para los códigos de cada columna a fin de evitar posibles confuciones en las referencias.
+
 • Se encontró también que los valores de la columna 'precio' de la tabla correspondiente a la semana del 26 de abril del 2020 tiene valores corruptos debido a la ausencia de un separador decimal en los úmeros. Esto parece ser un error al momento de registrar los datos en el excel y provoca que los valores tengan de 10 a 100 veces el valor que deberían sin que haya un criterio fácil de implementar para solucionarlo en el tiempo propuesto para la finalización del producto. Se sugiere como posible solución comparar los precios de cada producto de esa tabla con los precios del mismo producto en las demás tbalas y tratar de hacer una corrección basado en la varianza de los datos. Esto claro está, asumiendo que en esa semana no hubo cambios inflacionarios en los precios que jsutificaran una alta varianza.
+
 • El archivo .db resultante fue demasiado pesado para cargarse a github, sin embargo, se genera automáticamente al correr el script.
